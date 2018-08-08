@@ -94,3 +94,51 @@ class Util(object):
         else:
             self.log.info("### VERIFICATION DOES NOT CONTAINS !!!")
             return False
+        
+    def verifyTextMatch(self, actualText, expectedText):
+        """
+        Verify text match
+
+        Parameters:
+            expectedList: Expected Text
+            actualList: Actual Text
+        """
+        self.log.info("Actual Text From Application Web UI --> :: " + actualText)
+        self.log.info("Expected Text From Application Web UI --> :: " + expectedText)
+        if actualText.lower() == expectedText.lower():
+            self.log.info("### VERIFICATION MATCHED !!!")
+            return True
+        else:
+            self.log.info("### VERIFICATION DOES NOT MATCHED !!!")
+            return False
+    
+    def verifyListMatch(self, expetedList, actualList):
+        """
+        Verify two list matches
+
+        Parameters:
+            expectedList: Expected List
+            actualList: Actual List
+        """
+        
+        return set(expetedList) == set(actualList)
+    
+    def verifyListContains(self, expectedList, actualList):
+        """
+        Verify actual list contains elements of expected list
+
+        Parameters:
+            expectedList: Expected List
+            actualList: Actual List
+        """
+        length = len(expectedList)
+        
+        for i in range(0, length):
+            if actualList[i] not in expectedList:
+                return False
+            else:
+                return True
+            
+                
+        
+            
