@@ -34,7 +34,7 @@ class Util(object):
         except InterruptedError:
             print_stack()
 
-    def getAlphaNumeric(self, length, type="letters"):
+    def getAlphaNumeric(self, length, typeRequired="letters"):
         """
         Get random string of characters
 
@@ -44,13 +44,13 @@ class Util(object):
             Provide lower/upper/digits for different types
         """
         alpha_num = ''
-        if type == 'lower':
+        if typeRequired == 'lower':
             case = string.ascii_lowercase
-        elif type == 'upper':
+        elif typeRequired == 'upper':
             case = string.ascii_uppercase
-        elif type == "digits":
+        elif typeRequired == "digits":
             case = string.digits
-        elif type == "mix":
+        elif typeRequired == "mix":
             case =  string.ascii_letters + string.digits
         else:
             case = string.ascii_letters
