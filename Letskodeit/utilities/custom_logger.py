@@ -1,8 +1,13 @@
 import inspect
 import logging
+#import os
 
 
 def CustomeLogger(logLevel=logging.DEBUG):
+    #BASEDIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    #LOG_FILE = os.path.join(BASEDIR,'automation.log')
+    
+    
     #Gets the name of the class / method from where this method is called
     loggerName = inspect.stack()[1][3]
     logger = logging.getLogger(loggerName)

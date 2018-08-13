@@ -2,6 +2,7 @@ import os
 
 
 from selenium import webdriver
+from traceback import print_stack
 
 
 class WebDriverFactory():
@@ -36,6 +37,7 @@ class WebDriverFactory():
             else:
                 driver = webdriver.Firefox()
             
+            driver.set_page_load_timeout(60)
             driver.implicitly_wait(15)
             driver.maximize_window()
             driver.get(baseurl)
@@ -43,5 +45,6 @@ class WebDriverFactory():
         
         except :
             print("Driver initialization failed")
+            print_stack()
             #traceback.print_stack()
             return driver

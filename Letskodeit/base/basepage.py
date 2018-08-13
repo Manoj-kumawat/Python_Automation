@@ -6,7 +6,7 @@ from lib2to3.tests.support import driver
 
 class BasePage(SeleniumDriver):
     
-    def __init__(self):    
+    def __init__(self, driver):    
         """
             Inits BasePage class
     
@@ -24,7 +24,6 @@ class BasePage(SeleniumDriver):
         Parameters:
             titleToVerify: Title on the page that needs to be verified
         """
-        
         try:
             actualPageTitle = self.getPageTitle()
             return self.util.verifyTextContains(actualPageTitle, titleToVerify)
