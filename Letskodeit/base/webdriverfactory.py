@@ -3,6 +3,7 @@ import os
 
 from selenium import webdriver
 from traceback import print_stack
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 
 class WebDriverFactory():
@@ -32,7 +33,8 @@ class WebDriverFactory():
                 options.add_argument('--ignore-certificate-errors')
                 options.add_argument("--test-type")
                 #options.binary_location = "/usr/bin/chromium"
-                driver = webdriver.Chrome(chrome_options=options, executable_path=CHROME_DRIVER_PATH)
+                driver = webdriver.Remote(command_executor="http://192.168.31.36:5566/wd/hub", desired_capabilities=DesiredCapabilities.CHROME )
+                #driver = webdriver.Chrome(chrome_options=options, executable_path=CHROME_DRIVER_PATH)
             
             else:
                 driver = webdriver.Firefox()
